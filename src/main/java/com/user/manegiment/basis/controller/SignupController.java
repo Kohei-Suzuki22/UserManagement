@@ -1,5 +1,7 @@
 package com.user.manegiment.basis.controller;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +19,9 @@ public class SignupController {
 	private UserService userService;
 
 	@GetMapping("/signup")
-	public String getSignup(Model model){
+	public String getSignup(Model model, Locale locale){
 		
-		model.addAttribute("genderMap", userService.getGenderMap());
+		model.addAttribute("genderMap", userService.getGenderMap(locale));
 		
 		return "user/signup";
 	}
