@@ -17,39 +17,39 @@
 		<form th:action="@{/user/signup}" method="post" class="form-signup"
 			th:object="${signupForm}">
 			<h1 class="text-center" th:text="#{user.signup.title}"></h1>
-			<div class="form-group">
+			<div class="form-group mb-3">
 				<label for="userId" th:text="#{userId}"></label> <input type="text"
 					class="form-control" th:field="*{userId}"
 					th:errorclass="is-invalid">
 				<div class="invalid-feedback" th:errors="*{userId}"></div>
 			</div>
-			<div class="form-group">
+			<div class="form-group mb-3">
 				<label for="password" th:text="#{password}"></label> <input
 					type="password" class="form-control" th:field="*{password}"
 					th:errorclass="is-invalid">
 				<div class="invalid-feedback" th:errors="*{password}"></div>
 			</div>
-			<div class="form-group">
+			<div class="form-group mb-4">
 				<label for="userName" th:text="#{userName}"></label> <input
 					type="text" class="form-control" th:field="*{userName}"
 					th:errorclass="is-invalid">
 				<div class="invalid-feedback" th:errors="*{userName}"></div>
 
 			</div>
-			<div class="form-group">
+			<div class="form-group mb-4">
 				<label for="birthday" th:text="#{birthday}"></label> <input
 					type="text" class="form-control" placeholder="yyyy/MM/dd"
 					th:field="*{birthday}" th:errorclass="is-invalid">
 				<div class="invalid-feedback" th:errors="*{birthday}"></div>
 
 			</div>
-			<div class="form-group">
+			<div class="form-group mb-4">
 				<label for="age" th:text="#{age}"></label> <input type="text"
 					class="form-control" th:field="*{age}" th:errorclass="is-invalid">
 				<div class="invalid-feedback" th:errors="*{age}"></div>
 
 			</div>
-			<div class="form-group">
+			<div class="form-group mb-4">
 				<div th:each="item:${genderMap}" class="form-check-inline">
 					<input type="radio" class="form-check-input"
 						th:value="${item.value}" th:field="*{gender}"
