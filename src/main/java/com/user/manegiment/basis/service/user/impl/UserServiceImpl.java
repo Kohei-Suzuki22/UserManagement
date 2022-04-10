@@ -27,5 +27,10 @@ public class UserServiceImpl implements UserService {
 	public List<MasterUser> getUsers(){
 		return userMapper.findMany();
 	}
+	
+	@Override
+	public MasterUser getOne(String userId) {
+		return userMapper.findOne(userId);
+	}
 
 }
