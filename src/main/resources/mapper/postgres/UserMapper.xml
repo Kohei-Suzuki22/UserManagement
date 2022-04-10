@@ -27,5 +27,13 @@
 			#{role}
 		)
 	</insert>
+	
+	<!-- ユーザー複数権取得 -->
+	<select id ="findMany" resultType = "MasterUser">
+		select
+			*
+		from
+			master_user;
+	</select>
 </mapper>
 	

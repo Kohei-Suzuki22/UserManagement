@@ -1,5 +1,7 @@
 package com.user.manegiment.basis.service.user.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,11 @@ public class UserServiceImpl implements UserService {
 		masterUser.setRole("ROLE_GENERAL");
 
 		userMapper.insertOne(masterUser);
-		
-
+	}
+	
+	@Override
+	public List<MasterUser> getUsers(){
+		return userMapper.findMany();
 	}
 
 }
