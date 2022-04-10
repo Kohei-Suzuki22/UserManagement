@@ -9,7 +9,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class ApplicationService {
 
 	@Autowired
 	private MessageSource messageSource;
