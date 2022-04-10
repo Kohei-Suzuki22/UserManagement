@@ -9,5 +9,7 @@ public interface UserService {
 	public void signup(MasterUser masterUser);
 	
 	public List<MasterUser> getUsers();
+	
+	public MasterUser getOne(String userId);
 
 }

@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-<link rel="stylesheet" th:href="@{/css/user/signup.css}">
+<link rel="stylesheet" th:href="@{/css/user/list.css}">
 <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
 <title>ユーザー一覧</title>
@@ -28,6 +28,7 @@
 						<th class="th-width">誕生日</th>
 						<th class="th-width">年齢</th>
 						<th class="th-width">性別</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -37,6 +38,9 @@
 						<td th:text="${#dates.format(user.birthday, 'YYYY/MM/dd')}"></td>
 						<td th:text="${user.age}"></td>
 						<td th:text="${user.gender == 1} ? '男性': '女性' "></td>
+						<td>
+							<a th:href="@{'/user/detail/' + ${user.userId}}">詳細</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>

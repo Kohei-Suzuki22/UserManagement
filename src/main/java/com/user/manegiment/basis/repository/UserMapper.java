@@ -13,5 +13,7 @@ public interface UserMapper {
 	public int insertOne(MasterUser masteruser);
 	
 	public List<MasterUser> findMany();
+	
+	public MasterUser findOne(String userId);
 
 }

@@ -29,11 +29,34 @@
 	</insert>
 	
 	<!-- ユーザー複数権取得 -->
-	<select id ="findMany" resultType = "MasterUser">
+	<select id = "findMany" resultType = "MasterUser">
 		select
 			*
 		from
 			master_user;
 	</select>
+	
+	<!-- ユーザー1件取得 -->
+	<select id="findOne" resultMap="user">
+		select
+			*
+		from
+			master_user
+		where
+			user_id = #{userId}
+	</select>
+	
+	
+	<resultMap id="user" type="com.user.manegiment.basis.entity.MasterUser">
+		<id column="user_id" property="userId"></id>
+		<result column="password" property="password"></result>
+		<result column="user_name" property="userName"></result>
+		<result column="birthday" property="birthday"></result>
+		<result column="age" property="age"></result>
+		<result column="gender" property="gender"></result>
+		<result column="department_id" property="departmentId"></result>
+		<result column="role" property="role"></result>
+	</resultMap>
+	
 </mapper>
 	
