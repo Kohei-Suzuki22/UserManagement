@@ -2,6 +2,7 @@ package com.user.manegiment.basis.controller;
 
 import java.util.Locale;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.user.manegiment.basis.entity.MasterUser;
 import com.user.manegiment.basis.form.SignupForm;
 import com.user.manegiment.basis.form.validation.GroupOrder;
-import com.user.manegiment.basis.service.UserService;
+import com.user.manegiment.basis.service.ApplicationService;
+import com.user.manegiment.basis.service.user.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,12 +27,20 @@ import lombok.extern.slf4j.Slf4j;
 public class SignupController {
 	
 	@Autowired
+	private ApplicationService service;
+	
+	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ModelMapper modelMapper;
+	
+	
 
 	@GetMapping("/signup")
 	public String getSignup(Model model, Locale locale, @ModelAttribute SignupForm form){
 		
-		model.addAttribute("genderMap", userService.getGenderMap(locale));
+		model.addAttribute("genderMap", service.getGenderMap(locale));
 		
 		return "user/signup";
 	}
@@ -42,6 +53,10 @@ public class SignupController {
 		}
 		
 		log.info(form.toString());
+		
+		MasterUser user = modelMapper.map(form, MasterUser.class);
+		
+		userService.signup(user);
 		
 		return "redirect:/login";
 	}
