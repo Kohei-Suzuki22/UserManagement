@@ -21,6 +21,10 @@
 		<form id="user-detail-form" class="form-signup"
 			th:action="@{/user/detail}" method="post"
 			th:object="${userDetailForm}">
+			<div th:if=${validationError}>
+				<div class="text-danger" th:text="${validationError.size()+ '件の不正な値入力があります。'}"></div>
+			</div>
+			<input type="hidden" th:field="*{userId}">
 			<!-- ユーザー詳細 -->
 			<table class="table table-striped table-bordered table-hover">
 				<tbody>
@@ -31,12 +35,14 @@
 					<tr>
 						<th>パスワード</th>
 						<td><input type="text" class="form-control"
-							th:field="*{password}"></td>
+							th:field="*{password}" th:errorclass="is-invalid">
+							<div class="invalid-feedback" th:errors="*{password}"></div></td>
 					</tr>
 					<tr>
 						<th>ユーザー名</th>
 						<td><input type="text" class="form-control"
-							th:field="*{userName}"></td>
+							th:field="*{userName}" th:errorclass="is-invalid">
+							<div class="invalid-feedback" th:errors="*{userName}"></div></td>
 					</tr>
 					<tr>
 						<th>誕生日</th>
@@ -50,9 +56,12 @@
 						<th>性別</th>
 						<td th:text="*{gender == 1 ? '男性':'女性' }"></td>
 					</tr>
-
 				</tbody>
 			</table>
+			<div class="text-center">
+				<button class="btn btn-primary" type="submit" name="update">更新</button>
+				<button class="btn btn-danger" type="submit" name="delete">削除</button>
+			</div>
 		</form>
 
 	</div>

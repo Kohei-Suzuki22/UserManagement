@@ -29,8 +29,18 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public MasterUser getOne(String userId) {
+	public MasterUser getUserOne(String userId) {
 		return userMapper.findOne(userId);
+	}
+	
+	@Override
+	public void updateUserOne(MasterUser masterUser) {
+		 userMapper.updateOne(masterUser);
+	}
+	
+	@Override
+	public void deleteUserOne(String userId) {
+		 userMapper.deleteOne(userId);
 	}
 
 }

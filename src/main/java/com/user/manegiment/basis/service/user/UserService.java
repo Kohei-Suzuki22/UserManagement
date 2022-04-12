@@ -10,6 +10,10 @@ public interface UserService {
 	
 	public List<MasterUser> getUsers();
 	
-	public MasterUser getOne(String userId);
+	public MasterUser getUserOne(String userId);
+	
+	public void updateUserOne(MasterUser masterUser);
+	
+	public void deleteUserOne(String userId);
 
 }
