@@ -15,5 +15,6 @@ public class MasterUser {
 	private Integer gender;
 	private Integer departmentId;
 	private String role;
+	private MasterDepartment department;
 
 }
