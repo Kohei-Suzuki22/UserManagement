@@ -22,7 +22,8 @@
 			th:action="@{/user/detail}" method="post"
 			th:object="${userDetailForm}">
 			<div th:if=${validationError}>
-				<div class="text-danger" th:text="${validationError.size()+ '件の不正な値入力があります。'}"></div>
+				<div class="text-danger"
+					th:text="${validationError.size()+ '件の不正な値入力があります。'}"></div>
 			</div>
 			<input type="hidden" th:field="*{userId}">
 			<!-- ユーザー詳細 -->
@@ -55,6 +56,13 @@
 					<tr>
 						<th>性別</th>
 						<td th:text="*{gender == 1 ? '男性':'女性' }"></td>
+					</tr>
+					<tr>
+						<th>部署</th>
+						<td>
+							<span th:if="*{department != null}" th:text="*{department.departmentName}">
+							</span>
+						</td>
 					</tr>
 				</tbody>
 			</table>

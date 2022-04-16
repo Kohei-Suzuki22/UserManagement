@@ -13,6 +13,12 @@
 		<result column="gender" property="gender"></result>
 		<result column="department_id" property="departmentId"></result>
 		<result column="role" property="role"></result>
+		<association property="department" resultMap="department"></association>
+	</resultMap>
+	
+	<resultMap id="department" type="com.user.manegiment.basis.entity.MasterDepartment">
+		<id column="department_id" property="departmentId"></id>
+		<result column="department_name" property="departmentName"></result>
 	</resultMap>
 
 	<!-- ユーザー一件登録-->
@@ -61,6 +67,8 @@
 			*
 		from
 			master_user
+			left join master_department
+			on master_user.department_id = master_department.department_id
 		where
 			user_id = #{userId}
 	</select>
