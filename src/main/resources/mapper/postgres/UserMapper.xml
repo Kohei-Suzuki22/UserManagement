@@ -14,11 +14,18 @@
 		<result column="department_id" property="departmentId"></result>
 		<result column="role" property="role"></result>
 		<association property="department" resultMap="department"></association>
+		<collection property="salaryList" resultMap="salary" columnPrefix="salary_"></collection>
 	</resultMap>
 	
 	<resultMap id="department" type="com.user.manegiment.basis.entity.MasterDepartment">
 		<id column="department_id" property="departmentId"></id>
 		<result column="department_name" property="departmentName"></result>
+	</resultMap>
+	
+	<resultMap id="salary" type="com.user.manegiment.basis.entity.Salary">
+		<id column="user_id" property="userId"></id>
+		<id column="year_month" property="yearMonth"></id>
+		<result column="salary" property="salary"></result>
 	</resultMap>
 
 	<!-- ユーザー一件登録-->
@@ -64,13 +71,25 @@
 	<!-- ユーザー1件取得 -->
 	<select id="findOne" resultMap="user">
 		select
-			*
+			master_user.user_id,
+			master_user.password,
+			master_user.user_name,
+			master_user.birthday,
+			master_user.age,
+			master_user.gender,
+			master_department.department_id,
+			master_department.department_name,
+			salary.user_id as salary_user_id,
+			salary.year_month as salary_year_month,
+			salary.salary as salary_salary
 		from
 			master_user
 			left join master_department
 			on master_user.department_id = master_department.department_id
+			left join salary
+			on master_user.user_id = salary.user_id
 		where
-			user_id = #{userId}
+			master_user.user_id = #{userId}
 	</select>
 
 	<update id="updateOne">

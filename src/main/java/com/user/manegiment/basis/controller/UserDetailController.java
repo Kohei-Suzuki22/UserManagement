@@ -35,6 +35,9 @@ public class UserDetailController {
 		user.setPassword(null);
 
 		form = modelMapper.map(user, UserDetailForm.class);
+		
+		form.setSalaryList(user.getSalaryList());
+		
 
 		model.addAttribute("userDetailForm", form);
 		return "/user/detail";

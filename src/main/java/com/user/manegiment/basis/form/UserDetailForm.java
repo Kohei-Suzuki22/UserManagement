@@ -1,6 +1,7 @@
 package com.user.manegiment.basis.form;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -9,6 +10,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import com.user.manegiment.basis.entity.MasterDepartment;
+import com.user.manegiment.basis.entity.Salary;
 import com.user.manegiment.basis.form.validation.ValidGroup1;
 import com.user.manegiment.basis.form.validation.ValidGroup2;
 
@@ -32,5 +34,6 @@ public class UserDetailForm {
 	private Integer age;
 	private Integer gender;
 	private MasterDepartment department;
+	private List<Salary> salaryList;
 
 }
