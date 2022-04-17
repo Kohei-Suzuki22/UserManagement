@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.user.manegiment.basis.entity.MasterUser;
 import com.user.manegiment.basis.repository.UserMapper;
@@ -33,11 +34,13 @@ public class UserServiceImpl implements UserService {
 		return userMapper.findOne(userId);
 	}
 	
+	@Transactional
 	@Override
 	public void updateUserOne(MasterUser masterUser) {
 		 userMapper.updateOne(masterUser);
 	}
 	
+	@Transactional
 	@Override
 	public void deleteUserOne(String userId) {
 		 userMapper.deleteOne(userId);
