@@ -97,7 +97,19 @@
 			<artifactId>modelmapper-spring</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
+		<!-- aspect -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
 
 
 
