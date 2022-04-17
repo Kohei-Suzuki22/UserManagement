@@ -1,6 +1,7 @@
 package com.user.manegiment.basis.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -16,5 +17,6 @@ public class MasterUser {
 	private Integer departmentId;
 	private String role;
 	private MasterDepartment department;
+	private List<Salary> salaryList;
 
 }

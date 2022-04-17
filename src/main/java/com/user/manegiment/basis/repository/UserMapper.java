@@ -11,7 +11,7 @@ import com.user.manegiment.basis.entity.MasterUser;
 public interface UserMapper {
 	
 	
-	public int insertOne(MasterUser masteruser);
+	public int insertOne(@Param("masterUser") MasterUser masteruser);
 	
 	public List<MasterUser> findMany(@Param("masterUser") MasterUser masterUser);
 	
