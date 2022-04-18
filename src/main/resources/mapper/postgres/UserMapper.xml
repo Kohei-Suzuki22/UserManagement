@@ -41,14 +41,14 @@
 			role
 		)
 		values(
-			#{userId},
-			#{password},
-			#{userName},
-			#{birthday},
-			#{age},
-			#{gender},
-			#{departmentId},
-			#{role}
+			#{masterUser.userId},
+			#{masterUser.password},
+			#{masterUser.userName},
+			#{masterUser.birthday},
+			#{masterUser.age},
+			#{masterUser.gender},
+			#{masterUser.departmentId},
+			#{masterUser.role}
 		)
 	</insert>
 
