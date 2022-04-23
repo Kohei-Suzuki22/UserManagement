@@ -14,7 +14,11 @@
 <body class="bg-light">
 	<div class="text-center">
 		<form th:action="@{/login}" method="post" class="form-login">
+			<p th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null"
+				th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
+				class="text-danger">ログインエラーメッセージ</p>
 			<h2>ログイン</h2>
+
 			<div class="form-group">
 				<label for="userId" class="visually-hidden">userId</label> <input
 					type="text" class="form-control" placeholder="ユーザーID" name="userId">

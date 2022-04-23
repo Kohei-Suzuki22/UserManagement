@@ -38,7 +38,6 @@ public class SignupController {
 	@Autowired
 	private ModelMapper modelMapper;
 	
-	
 
 	@GetMapping("/signup")
 	public String getSignup(Model model, Locale locale, @ModelAttribute SignupForm form){

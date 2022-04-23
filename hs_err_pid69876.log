@@ -1,0 +1,33 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x0000000108f1493e, pid=69876, tid=8707
+#
+# JRE version: OpenJDK Runtime Environment AdoptOpenJDK (11.0.10+9) (build 11.0.10+9)
+# Java VM: OpenJDK 64-Bit Server VM AdoptOpenJDK (11.0.10+9, mixed mode, tiered, compressed oops, g1 gc, bsd-amd64)
+# Problematic frame:
+# C  [libjimage.dylib+0x193e]  _ZN12ImageStrings4findEP6EndianPKcPij+0x52
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/AdoptOpenJDK/openjdk-support/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:57423 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=57422 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dspring.application.admin.enabled=true -Djava.security.egd=file:/dev/./urandom -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=userManegiment -javaagent:/Applications/Eclipse_2021-03.app/Contents/Eclipse/configuration/org.eclipse.osgi/471/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 com.user.manegiment.basis.UserManegimentApplication --spring.output.ansi.enabled=always
+
+Host: MacBookAir10,1 x86_64 2400 MHz, 8 cores, 8G, Darwin 21.3.0
+Time: Sat Apr 23 12:46:21 2022 JST elapsed time: 1.267601 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fd652009800):  JavaThread "main" [_thread_in_vm, id=8707, stack(0x000000030528f000,0x000000030538f000)]
+
+Stack: [0x000000030528f000,0x000000030538f000],  sp=0x000000030538c820,  free space=1014k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.dylib+0x193e]  _ZN12ImageStrings4findEP6EndianPKcPij+0x52
+C  [libjimage.dylib+0x2598]  _ZNK15ImageFileReader19find_location_indexEPKcPy+0x3e
+C  [libjimage.dylib+0x28d8]  JIMAGE_FindResource+0xcf
+V  [libjvm.dylib+0x1fc4a7]
