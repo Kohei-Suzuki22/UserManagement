@@ -51,6 +51,17 @@
 			#{masterUser.role}
 		)
 	</insert>
+	
+	
+	<!-- ログインユーザー情報取得 -->
+	<select id="findLoginUser" resultType="MasterUser">
+		select
+			*
+		from
+			master_user
+		where
+			user_id = #{userId}
+	</select>
 
 	<!-- ユーザー複数権取得 -->
 	<select id="findMany" resultType="MasterUser">

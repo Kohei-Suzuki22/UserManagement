@@ -8,6 +8,8 @@ public interface UserService {
 	
 	public void signup(MasterUser masterUser);
 	
+	public MasterUser findLoginUser(String userId);
+	
 	public List<MasterUser> getUsers(MasterUser masterUser);
 	
 	public MasterUser getUserOne(String userId);
