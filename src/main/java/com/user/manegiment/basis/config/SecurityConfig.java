@@ -56,6 +56,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.usernameParameter("userId") //ログイン画面のユーザーID入力欄のname属性と一致させる
 			.passwordParameter("password") //ログイン画面のパスワード入力欄のname属性と一致させる
 			.defaultSuccessUrl("/user/list", true);  //成功後の遷移先。
+		
+		/* ログアウト処理 **/
+
+		http.logout()
+			.logoutUrl("/logout")						// logoutがpostされるurlと合わせる th:action="@{post先のurl}"
+			.logoutSuccessUrl("/login?logoutSuccess");	// 成功後の遷移先。
+		
+		/*
+		 * ↑ springSecurityのログアウト処理を使う場合、logout用のコントローラは不要になる。
+		 */
 	}
 	
 	@Override
