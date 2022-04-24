@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public MasterUser findLoginUser(String userId) {
+		return userMapper.findLoginUser(userId);		
+	}
+	
+	@Override
 	public List<MasterUser> getUsers(MasterUser masterUser){
 		return userMapper.findMany(masterUser);
 	}
