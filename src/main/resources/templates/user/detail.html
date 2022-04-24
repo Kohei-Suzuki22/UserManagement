@@ -9,6 +9,7 @@
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/user/list.css}">
+<script th:src="@{/js/user/detail.js}" defer></script>
 <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
 <title>ユーザー詳細</title>
@@ -69,6 +70,10 @@
 			<div class="text-center">
 				<button class="btn btn-primary" type="submit" name="update">更新</button>
 				<button class="btn btn-danger" type="submit" name="delete">削除</button>
+			</div>
+			<div class="text-center mt-3">
+				<button id="rest-update" class="btn btn-primary" type="button">REST更新</button>
+				<button id="rest-delete" class="btn btn-danger" type="button">REST削除</button>
 			</div>
 			<!--　給料情報 -->
 			<th:block th:if="*{salaryList != null and salaryList.size() > 0}">
