@@ -45,8 +45,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/user/signup").permitAll()
 			.anyRequest().authenticated();
 		
-		/* CSRF対策を無効に設定 **/
-		http.csrf().disable();
 		
 		/* ログイン処理 **/
 		http.formLogin()
@@ -66,6 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		/*
 		 * ↑ springSecurityのログアウト処理を使う場合、logout用のコントローラは不要になる。
 		 */
+		
 	}
 	
 	@Override
