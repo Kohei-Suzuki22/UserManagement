@@ -9,13 +9,14 @@
 <link rel="stylesheet" th:href="@{/css/user/signup.css}">
 <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+<script th:src="@{/js/user/signup.js}" defer></script>
 <title th:text="#{user.signup.title}"></title>
 </head>
 <body class="bg-light">
 	<div class="text-center">
 
 		<form th:action="@{/user/signup}" method="post" class="form-signup"
-			th:object="${signupForm}">
+			th:object="${signupForm}" id="signup-form">
 			<h1 class="text-center" th:text="#{user.signup.title}"></h1>
 			<div class="form-group mb-3">
 				<label for="userId" th:text="#{userId}"></label> <input type="text"
@@ -60,6 +61,9 @@
 			</div>
 			<input type="submit" th:value="#{user.signup.btn}"
 				class="btn btn-primary w-100 mt-3">
+			<button id="rest-signup" class="btn btn-primary w-100 mt-3" type="button">
+				ユーザー登録(REST)
+			</button>
 		</form>
 		<a th:href="@{/login}">ログインはこちら</a>
 	</div>
