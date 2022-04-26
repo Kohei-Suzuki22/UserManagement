@@ -1,6 +1,8 @@
 package com.user.manegiment.basis.REST.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -12,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +25,7 @@ import com.user.manegiment.basis.REST.entity.RestResult;
 import com.user.manegiment.basis.entity.MasterUser;
 import com.user.manegiment.basis.form.SignupForm;
 import com.user.manegiment.basis.form.UserDetailForm;
+import com.user.manegiment.basis.form.UserListForm;
 import com.user.manegiment.basis.form.validation.GroupOrder;
 import com.user.manegiment.basis.service.user.UserService;
 
@@ -65,6 +69,21 @@ public class UserRestController {
 		 
 		 return new RestResult(0, errors);
 		
+	}
+	
+	@GetMapping("/getList/rest")
+	public List<MasterUser> getListRest(UserListForm form){
+		
+		List<MasterUser> userList = new ArrayList<>();
+		
+		try {
+			MasterUser user = modelMapper.map(form, MasterUser.class);
+			userList.addAll(userService.getUsers(user));
+		}catch(Exception e) {
+			throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return userList;
 	}
 
 	@PutMapping("/update")
