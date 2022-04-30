@@ -48,9 +48,9 @@ public class UserServiceJPAImpl implements UserService {
 	@Override
 	public MasterUser findLoginUser(String userId){
 		
-		Optional<MasterUser> findUserResult = userRepository.findById(userId);
-		
-		MasterUser user = findUserResult.orElse(null);
+		Optional<MasterUser> findLoginUserResult = userRepository.findLoginUser(userId);
+
+		MasterUser user = findLoginUserResult.orElse(null);
 		
 		return user;
 		
@@ -77,7 +77,15 @@ public class UserServiceJPAImpl implements UserService {
 	/** ユーザー1件更新 */
 	@Override
 	@Transactional
-	public void updateUserOne(MasterUser masterUser) {}
+	public void updateUserOne(MasterUser masterUser) { 
+		
+		String password = passwordEncoder.encode(masterUser.getPassword());
+		
+		Integer i = userRepository.updateUser(masterUser.getUserId(), password, masterUser.getUserName());
+		
+		System.out.println(i);
+		
+	}
 	
 	
 	/** ユーザー1件削除 */
